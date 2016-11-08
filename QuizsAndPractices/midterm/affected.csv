@@ -1,0 +1,10 @@
+Data Dictionary: ,
+child.id ,subject identifier
+c.geno,genotype of child at locus of interest
+,
+child.id,c.geno
+AA1,CC
+BB2,TT
+CC3,CT
+DD4,TT
+EE5,TT

@@ -1,0 +1,5 @@
+This data file contains information on patients enrolled at Site 1.
+
+ID+SITE+AGE
+A-001+1+56
+B-002+1+68

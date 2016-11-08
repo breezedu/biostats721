@@ -1,0 +1,21 @@
+child.id,f.type,f.dz,f.geno
+AA1,Mother,1,CC
+AA1,Father,1,CC
+AA1,Sibling,1,TT
+AA1,Sibling,0,TT
+BB2,Mother,1,TT
+BB2,Father,0,CC
+CC3,Mother,0,CC
+CC3,Father,1,CC
+CC3,Aunt,1,CC
+DD4,Mother,0,CT
+EE5,Mother,1,CT
+EE5,Father,1,CC
+EE5,Uncle,1,TT
+EE5,Sibling,1,TT
+,,,
+Data Dictionary: ,,,
+child.id,subject identifier,,
+f.type,type of family member relative to the child,,
+f.dz,disease status of family member (0 = unaffected; 1 = affected),,
+f.geno,genotype of family member at locus of interest,,

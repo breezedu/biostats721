@@ -1,0 +1,9 @@
+ID+SITE+REP+WT
+A-001+1+Pre Weight+135
+A-001+1+Post Weight+115
+B-002+1+Pre Weight+150
+B-002+1+Post Weight+152
+A-001+2+Pre Weight+143
+A-001+2+Post Weight+127
+C-003+2+Pre Weight+115
+C-003+2+Post Weight+127

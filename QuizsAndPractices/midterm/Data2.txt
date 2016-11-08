@@ -1,0 +1,6 @@
+ID+SITE+AGEYR
+A-001+2+47
+B-002+2+62
+C-003+2+53
+
+This data file contains information on patients enrolled at Site 2.
