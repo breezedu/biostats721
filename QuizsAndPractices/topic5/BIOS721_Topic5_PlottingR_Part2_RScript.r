@@ -67,7 +67,7 @@ plot(x = data$BARESOIL, y = data$R,
      )
 
 labels = c('scatter plot','blank plot')
-
+par(mfrow = c(1, 1))
 # Anything we should add to this figure? ... legend?
 # - Try it out!
 
