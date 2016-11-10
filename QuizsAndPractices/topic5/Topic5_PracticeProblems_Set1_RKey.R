@@ -39,6 +39,7 @@ GetColorHexAndDecimal <- function(color){
      c <- col2rgb(color)
      sprintf("#%02X%02X%02X %3d %3d %3d", c[1],c[2],c[3], c[1], c[2], c[3])}
 GetColorHexAndDecimal("turquoise4")
+
 boxplot(data$exam1,
         main='Exam 1 Scores',
         ylab='Score out of 100 points',
@@ -127,7 +128,7 @@ exam.means <- apply(data[,2:4],2,mean,na.rm=TRUE)
 lines(1:3,exam.means,type='p',
       pch='*',cex=5,col='darkorange2')
 
-text(0.9,50,labels='* denotes the sample mean')
+text(1.9,50,labels='* denotes the sample mean')
 
 # Part (g)
 # - Set working directory to where you want the figure 
@@ -136,7 +137,7 @@ text(0.9,50,labels='* denotes the sample mean')
 # - Should export to directory where you stored the 
 #   data unless you change it!
 # setwd("") <-- ***
-png('AllExamsBoxplot.png')
+pdf('AllExamsBoxplot.pdf')
 boxplot(exam~group,
         main='Exam Scores',
         ylab='Score out of 100 points',
@@ -149,7 +150,7 @@ exam.means <- apply(data[,2:4],2,mean,na.rm=TRUE)
 lines(1:3,exam.means,type='p',
       pch='*',cex=5,col='darkorange2')
 
-text(0.9,50,labels='* denotes the sample mean')
+text(1.5,50,labels='* denotes the sample mean')
 dev.off()
 
 # ----------------------------------------------------------

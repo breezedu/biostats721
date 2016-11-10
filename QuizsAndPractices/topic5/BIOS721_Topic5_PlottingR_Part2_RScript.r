@@ -63,7 +63,10 @@ plot(x = data$BARESOIL, y = data$R,
      ylab = "Species richness", main = "Scatter plot",
      xlim = c(0, 45), ylim = c(4, 19),
      pch = pch.time,
-     col = col.time)
+     col = col.time
+     )
+
+labels = c('scatter plot','blank plot')
 
 # Anything we should add to this figure? ... legend?
 # - Try it out!
@@ -81,6 +84,7 @@ plot(x = data$BARESOIL, y = data$R,
 # - Suppose you wanted to add fitted linear regression line to plot
 # - Can use the lm() function to fit the linear regression line
 # - Then use the abline() function to plot the fitted line
+par(mfrow=c(1,1))
 plot(x = data$BARESOIL, y = data$R,
      xlab = "Exposed soil",
      ylab = "Species richness", main = "Scatter plot",
