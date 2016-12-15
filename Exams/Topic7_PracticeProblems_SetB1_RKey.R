@@ -35,6 +35,7 @@ fit.exp   <- cp.sim(seed=333,dist='exp')
 
 
 # Question 1: -----------------------------------------
+library(xlsx)
 
 # - R Code given in problem: 
 results <- rbind(apply(fit.norm$capture,2,mean),
@@ -85,6 +86,10 @@ plot(n,rep(NA,length(n)),
 
 abline(h=0.95,lty=2,col='black',lwd=1)
 
+y.norm <- apply(fit.norm$capture, 2, mean)
+
+lines(n, y.norm, type = 'b', lty = 1, col = 'blue', lwd = 3)
+
 lines(n,apply(fit.norm$capture,2,mean),
       type='b',lty=1,col='slateblue2',lwd=2)
 lines(n,apply(fit.chisq$capture,2,mean),
@@ -92,7 +97,7 @@ lines(n,apply(fit.chisq$capture,2,mean),
 lines(n,apply(fit.exp$capture,2,mean),
       type='b',lty=1,col='red',lwd=2)
 
-legend('bottomright',cex=1.25,
+legend('bottomright',cex=0.5,
        legend=c('N(1;1)','Chisq(df=1)','Exp(rate=1)'),
        col=c('slateblue2','turquoise','red'),
        lty=rep(1,3),lwd=rep(2,3))
