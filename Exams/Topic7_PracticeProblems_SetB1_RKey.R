@@ -95,6 +95,9 @@ abline(h=0.95,lty=2,col='black',lwd=1)
 y.norm <- apply(fit.norm$capture, 2, mean)
 
 lines(n, y.norm, type = 'b', lty = 1, col = 'blue', lwd = 3)
+lines(n, y.chisq, type = 'b', lty = 1, col = 'red', lwd = 3)
+lines(n, y.exp, type = 'b', lty = 1, col = 'yellow', lwd = 3)
+
 
 lines(n,apply(fit.norm$capture,2,mean),
       type='b',lty=1,col='slateblue2',lwd=2)
@@ -141,9 +144,9 @@ n <- c(5,10,15,20,25,50,100)
 
 plot(n,rep(NA,length(n)),
      ylim=c(0.8,1.0),
-     main='Coverage Proability for T-test 95% CI',
-     ylab='Coverage Probability (based on 10000 runs)',
-     xlab='Sample Size')
+     main='main, main',
+     ylab='ylab, ylab',
+     xlab='xlab, xlablabx')
 
 abline(h=0.95,lty=2,col='black',lwd=1)
 
