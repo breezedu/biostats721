@@ -1,0 +1,24 @@
+Study: Weight loss after introduction of a mobile health intervention. ,,,
+Data Dictionary: ,,,
+(1) subject = participant id,,,
+(2) time = time (in months) of weight measurement during study,,,
+(3) weight = observed weight at study visit (lbs),,,
+(4) age = age of participant (years),,,
+,,,
+1,Month0,187,23
+1,Month1,186,23
+1,Month3,178,23
+2,Month0,154,37
+2,Month1,,37
+2,Month3,163,37
+3,Month0,108,40
+3,Month1,108,40
+3,Month3,108,40
+4,Month0,117,35
+4,Month1,123,35
+4,Month3,119,35
+5,Month0,144,46
+5,Month1,138,46
+5,Month3,125,46
+,,,
+subject,time,weight,age

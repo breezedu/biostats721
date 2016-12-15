@@ -261,3 +261,33 @@ legend(-1.2,-0.4,legend=c('sin','cos','2sin','2cos'),
 
 
 
+par(mfcol = c(2, 2))
+
+
+shuffled1 <- read.table("mixscore_shuffled1.out", header = F)
+plot(x = c(1:10000), y = shuffled1$V1[1:10000],
+     xlab = "shuffled # 1 range 1:10000",
+     ylab = "MixScore ADM"
+     )
+
+shuffled2 <- read.table("mixscore_shuffled2.out", header = F)
+plot(x = c(1:10000), y = shuffled2$V1[1:10000],
+     xlab = "shuffled # 2 range 1:10000",
+     ylab = "MixScore ADM"
+     )
+
+
+shuffled3 <- read.table("mixscore_shuffled3.out", header = F)
+plot(x = c(1:10000), y = shuffled3$V1[1:10000],
+     xlab = "shuffled # 3 range 1:10000",
+     ylab = "MixScore ADM"
+     )
+
+unshuffled <- read.table("mixscore_shuffled0.out", header = F)
+plot( x = c(1:10000), y = unshuffled$V1[1:10000],
+      xlab = "unshuffled range 1:10000",
+      ylab = "MixScore ADM"
+      )
+
+
+

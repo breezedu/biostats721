@@ -34,7 +34,7 @@ hist(women,
      xlab = wx.lab
     )
 mean.w = round(mean(women), digits = 2)
-text(20,115,labels= (paste('Women mean = ', mean.w) ))
+text(20,115,paste('Women mean = ', mean.w), pos = 4 )
 box()
 
 ## plot men
@@ -48,7 +48,7 @@ hist(men,
 mean.m = round(mean(men), digits = 2)
 
 
-text(x=16, y=115,labels= (paste('Men mean = ', mean.m) ))
+text(x=16, y=115,paste('Men mean = ', mean.m), pos = 3 )
 box()
 
 

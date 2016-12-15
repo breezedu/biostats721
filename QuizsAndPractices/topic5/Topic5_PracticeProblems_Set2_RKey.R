@@ -68,6 +68,7 @@ segments(1.6,mean(controls$totserchol),
 points(rep(1,length(cases$totserchol)),
        cases$totserchol,
       cex=1.5,col='sienna3',pch=16)
+
 points(rep(2,length(controls$totserchol)),
        controls$totserchol,
        cex=1.5,col='slateblue2',pch=16)
@@ -90,6 +91,7 @@ segments(1.6,mean(controls$totserchol),
 points(rep(1,length(cases$totserchol))+runif(length(cases$totserchol),-0.02,0.02),
        cases$totserchol,
        cex=1.5,col='sienna3',pch=16)
+
 points(rep(2,length(controls$totserchol))+runif(length(controls$totserchol),-0.02,0.02),
        controls$totserchol,
        cex=1.5,col='slateblue2',pch=16)

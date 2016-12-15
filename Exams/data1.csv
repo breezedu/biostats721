@@ -1,0 +1,16 @@
+Site_ID,Pat_ID,Enroll,Gender,Hosp,LabVal1,LabVal2,LabVal3
+1,AGKE,8/3/1999,Male,acd,14.5,43.8,13.3
+1,SBKE,12-18-2002,Female,not,28.3,,
+1,SEKK,10-23-2008,Male,not,10.8,38.9,15.2
+1,AAAA,1/24/2005,Male,acd,26,28.8,
+1,MKRX,5/26/2005,Female,acd,38.6,48.8,22.3
+,,,,,,,
+Data Dictionary: ,,,,,,,
+Site_ID = ID number of site ,,,,,,,
+Pat_ID = ID numbe of subject,,,,,,,
+Enroll = Enrollment date,,,,,,,
+Gender = Gender of subject,,,,,,,
+Hosp = Type of medical center (acd = academic vs. not = non-academic),,,,,,,
+LabVal1 = Lab Value measured on week 1,,,,,,,
+LabVal2 = Lab Value measured on week 2,,,,,,,
+LabVal3 = Lab Value measured on week 3,,,,,,,

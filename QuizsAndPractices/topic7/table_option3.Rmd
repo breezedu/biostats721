@@ -1,0 +1,118 @@
+---
+title: "Simulation Study Summary Report"
+output: html_document
+---
+
+# Background
+
+Performed a simulation study to compare the performance of three estimators (mean, trimmed mean, and median) of the population mean by comparing their BIAS and MSE. 
+
+# Results
+
+See table below for BIAS and MSE results.  
+
+```{r,echo=FALSE}
+# Set to location of .RData file from Topic 6 Part 3
+in_dir <- "/Users/meganneely/Dropbox/Duke Teaching/BIOS 721/2_Lectures/Topic7_ReproResearchR/Part 2/" 
+in_dir <- ""
+# Load the R Workspace with the simulation results
+# - Should sit the fit objects listed in the workspace
+#   after running the load() command
+load(paste(in_dir,'sim_allns_fitobjects.RData',sep=''))
+
+# Function to create each row in table shell
+make.row <- function(fit.object,prop){
+  which.prop <- which(seq(0,0.2,by=0.01)==prop)
+  cell1 <- paste(formatC(fit.object$bias.t1[which.prop],digits=3,format='f'),
+                 ' (',
+                 formatC(fit.object$mse.t1[which.prop],digits=3,format='f'),
+                 ')',sep='')
+  cell2 <- paste(formatC(fit.object$bias.t2[which.prop],digits=3,format='f'),
+                 ' (',
+                 formatC(fit.object$mse.t2[which.prop],digits=3,format='f'),
+                 ')',sep='')
+  cell3 <- paste(formatC(fit.object$bias.t3[which.prop],digits=3,format='f'),
+                 ' (',
+                 formatC(fit.object$mse.t3[which.prop],digits=3,format='f'),
+                 ')',sep='')
+  row <- c(cell1,cell2,cell3)
+  return(list(row=row))}
+
+# Create a data objec that mirrors the table shell 
+table.object <- NULL 
+
+sampsize.n50 <- rep(NA,3)            # Section 1 of Table Shell 
+table.object <- rbind(table.object,sampsize.n50)
+
+prop.out.00 <- make.row(fit.n50,0)$row
+table.object <- rbind(table.object,prop.out.00)
+
+prop.out.05 <- make.row(fit.n50,0.05)$row
+table.object <- rbind(table.object,prop.out.05)
+
+prop.out.10 <- make.row(fit.n50,0.10)$row
+table.object <- rbind(table.object,prop.out.10)
+
+sampsize.n100 <- rep(NA,3)           # Section 2 of Table Shell 
+table.object <- rbind(table.object,sampsize.n100)
+
+prop.out.00 <- make.row(fit.n100,0)$row
+table.object <- rbind(table.object,prop.out.00)
+
+prop.out.05 <- make.row(fit.n100,0.05)$row
+table.object <- rbind(table.object,prop.out.05)
+
+prop.out.10 <- make.row(fit.n100,0.10)$row
+table.object <- rbind(table.object,prop.out.10)
+
+sampsize.n150 <- rep(NA,3)           # Section 3 of Table Shell 
+table.object <- rbind(table.object,sampsize.n150)
+
+prop.out.00 <- make.row(fit.n150,0)$row
+table.object <- rbind(table.object,prop.out.00)
+
+prop.out.05 <- make.row(fit.n150,0.05)$row
+table.object <- rbind(table.object,prop.out.05)
+
+prop.out.10 <- make.row(fit.n150,0.10)$row
+table.object <- rbind(table.object,prop.out.10)
+
+colnames(table.object) <- c('Mean','20% Trimmed Mean','Median')
+```
+
+Table 1. Bias and Mean Square Error of Estimators for the Population Mean [^tab.foot]
+
+[^tab.foot]: Results reported as Bias (Mean Square Error); Bias and Mean Square Error based on average over 1000 simulation runs. 
+
+| | **Mean** | **20% Trimmed Mean** | **Median** |
+|:---------------|:---------------:|:---------------:|:---------------:|
+| **Sample Size = 50**  | | | |
+| % Outliers = 0        | `r table.object[2,1]`  | `r table.object[2,2]`  | `r table.object[2,3]`  |
+| % Outliers = 5        | `r table.object[3,1]`  | `r table.object[3,2]`  | `r table.object[3,3]`  |
+| % Outliers = 10       | `r table.object[4,1]`  | `r table.object[4,2]`  | `r table.object[4,3]`  |
+| **Sample Size = 100** | | | |
+| % Outliers = 0        | `r table.object[6,1]`  | `r table.object[6,2]`  | `r table.object[6,3]`  |
+| % Outliers = 5        | `r table.object[7,1]`  | `r table.object[7,2]`  | `r table.object[7,3]`  |
+| % Outliers = 10       | `r table.object[8,1]`  | `r table.object[8,2]`  | `r table.object[8,3]`  |
+| **Sample Size = 150** | | | |
+| % Outliers = 0        | `r table.object[10,1]` | `r table.object[10,2]` | `r table.object[10,3]` |
+| % Outliers = 5        | `r table.object[11,1]` | `r table.object[11,2]` | `r table.object[11,3]` |
+| % Outliers = 10       | `r table.object[12,1]` | `r table.object[12,2]` | `r table.object[12,3]` |
+
+<!-- This is this sytanx for a COMMENT in RMarkdown --> 
+
+<!--
+Table 1. Bias and Mean Square Error of Estimators for the Population Mean [^tab.foot]
+
+[^tab.foot]: Results reported as Bias (Mean Square Error); Bias and Mean Square Error based on average over 1000 simulation runs. 
+-->
+
+``` {r, echo=FALSE,eval=FALSE}
+library(knitr)
+kable(table.object,
+      align=c('l','c','c','c'))
+```
+
+# Conclusions
+
+Mean is superior when proportion of outliers is low (< 5%), but the median becomes superior as the proportion increases. However, for higher proportions the performance of all three estimators suffers.  

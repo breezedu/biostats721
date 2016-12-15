@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\begin{center}
+{\bf{\huge Summary of Simulation Results}}
+\end{center}
+
+\section{Background}
+Performed a simulation study to compare the performance of three estimators (mean, trimmed mean, and median) of the population mean by comparing their BIAS and MSE. 
+
+\section{Results}
+See figure below for BIAS and MSE results.  
+
+\begin{figure}[h]
+\begin{center}
+
+% Insert R Code here
+<<resultsfig,fig=TRUE,height=6,width=8,echo=FALSE>>=
+in_dir <- ''        # Set to location of .RData file from Topic 6 Part 3
+out_dir <- ''       # Set to location where you want to save report doc
+
+# Load the R Workspace with the simulation results
+# - Should sit the fit objects listed in the workspace
+#   after running the load() command
+load(paste(in_dir,'sim_allns_fitobjects.RData',sep=''))
+
+# Read in the script file containing the plotting function
+source(paste(in_dir,'topic6_plot_func.R',sep=''))
+
+
+par(mfcol=c(2,3))
+
+# (1) Bias for n = 50 
+plot.func(prop.out=seq(0.0,0.20,by=0.01),
+          t1.data=fit.n50$bias.t1,
+          t2.data=fit.n50$bias.t2,
+          t3.data=fit.n50$bias.t3,
+          main.title='For n = 50',
+          y.lab='Bias',
+          y.lim=c(-0.01,0.70),
+          legend=TRUE,
+          x.leg=0,
+          y.leg=0.65)
+
+# (2) MSE for n = 50
+plot.func(prop.out=seq(0.0,0.20,by=0.01),
+          t1.data=fit.n50$mse.t1,
+          t2.data=fit.n50$mse.t2,
+          t3.data=fit.n50$mse.t3,
+          main.title='',
+          y.lab='MSE',
+          y.lim=c(-0.01,0.70))
+
+# (3) Bias for n = 100 
+plot.func(prop.out=seq(0.0,0.20,by=0.01),
+          t1.data=fit.n100$bias.t1,
+          t2.data=fit.n100$bias.t2,
+          t3.data=fit.n100$bias.t3,
+          main.title='For n = 100',
+          y.lab='Bias',
+          y.lim=c(-0.01,0.70))
+
+# (4) MSE for n = 100
+plot.func(prop.out=seq(0.0,0.20,by=0.01),
+          t1.data=fit.n100$mse.t1,
+          t2.data=fit.n100$mse.t2,
+          t3.data=fit.n100$mse.t3,
+          main.title='',
+          y.lab='MSE',
+          y.lim=c(-0.01,0.70))
+
+# (5) Bias for n = 150 
+plot.func(prop.out=seq(0.0,0.20,by=0.01),
+          t1.data=fit.n150$bias.t1,
+          t2.data=fit.n150$bias.t2,
+          t3.data=fit.n150$bias.t3,
+          main.title='For n = 150',
+          y.lab='Bias',
+          y.lim=c(-0.01,0.70))
+
+# (6) MSE for n = 150
+plot.func(prop.out=seq(0.0,0.20,by=0.01),
+          t1.data=fit.n150$mse.t1,
+          t2.data=fit.n150$mse.t2,
+          t3.data=fit.n150$mse.t3,
+          main.title='',
+          y.lab='MSE',
+          y.lim=c(-0.01,0.70))
+@
+
+\end{center}
+\caption{Simultation Study Results}
+\end{figure}
+
+\section{Conclusions}
+Mean is superior when proportion of outliers is low (< 5\%), but the median becomes superior as the proportion increases. However, for higher proportions the performance of all three estimators suffers.
+
+\end{document}
