@@ -78,6 +78,12 @@ write.xlsx(results3,file='cov_prob_table_v2.xlsx')
 # - R Code given in problem:
 n <- c(5,10,15,20,25,50,100)
 
+
+pdf('filename.pdf',width=11,height=9)
+
+png('filename.png',width=11,height=9,units='in',res=300)
+
+
 plot(n,rep(NA,length(n)),
      ylim=c(0.8,1.0),
      main='MAIN main main',
