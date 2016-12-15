@@ -80,9 +80,9 @@ n <- c(5,10,15,20,25,50,100)
 
 plot(n,rep(NA,length(n)),
      ylim=c(0.8,1.0),
-     main='Coverage Proability for T-test 95% CI',
-     ylab='Coverage Probability (based on 10000 runs)',
-     xlab='Sample Size')
+     main='MAIN main main',
+     ylab='ylab, ylab, ylab',
+     xlab='xlab, xlab')
 
 abline(h=0.95,lty=2,col='black',lwd=1)
 
